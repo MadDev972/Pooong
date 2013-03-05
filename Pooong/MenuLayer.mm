@@ -42,7 +42,6 @@
         
 
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"Menu_music.wav"];
-        
     }
     
     return self;

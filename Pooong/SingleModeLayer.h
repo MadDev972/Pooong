@@ -12,44 +12,22 @@
 #import "cocos2d.h"
 #import "Box2D.h"
 #import "GLES-Render.h"
-#import "Paddle.h"
-#import "Ball.h"
+#import "PlayLayer.h"
 
 
 #define PTM_RATIO 32
 
-@interface SingleModeLayer : CCLayer
+@interface SingleModeLayer : PlayLayer
 {
-    CGSize winSize;
-    b2World *_world;
-    b2Body *_groundBody;
-    b2MouseJoint *_mouseJoint;
-    CCLabelBMFont *label_points1, *label_points2;
-    int points1, points2;
-    Paddle *computerPaddle, *playerPaddle;
-    Ball *ball;
+    
 }
 
 +(id) scene;
 
 - (id)init;
-- (void)tick:(ccTime) dt;
-- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)ccTouchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
-- (void)paddleMotion:(ccTime)dt;
-- (void)checkContacts;
-- (void)pointScored:(int)player;
+- (void)update:(ccTime)dt;
+- (void)paddleMotion;
 - (void)manageScores:(int)player;
-- (void)manageBall;
-- (void)showRestartMenu:(int)winning_player;
-- (void)restartTapped:(id)sender;
-- (void)backTapped:(id)sender;
-
-
-
-
 
 
 @end
